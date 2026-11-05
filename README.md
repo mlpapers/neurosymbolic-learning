@@ -17,6 +17,19 @@
 ## Compiled symbolic representations
 
 - **Knowledge compilation** - Darwiche and Marquis compare logical representations by succinctness and tractable queries or transformations. Compiling a theory can make repeated reasoning cheap while enlarging the representation; tractability is query- and language-specific. [Darwiche and Marquis 2002](<https://arxiv.org/abs/1106.1819> "A Knowledge Compilation Map; JAIR").
+- **Provenance semirings** - Annotates input facts with symbols and query results with polynomials. Sums record alternative derivations, products record joint dependencies. For positive relational queries, these annotations preserve how each answer follows from source facts. [Green et al. 2007](<https://www.cs.ucdavis.edu/~green/papers/pods07.pdf> "Provenance Semirings; PODS").
+
+## Knowledge graphs and ontology learning
+
+- **Text2Onto** - Learns concepts and relations from text, attaching confidence scores and source passages. Tracks corpus changes to update affected ontology objects. Conflicting candidates can coexist until a user resolves them. [Cimiano and Völker 2005](<https://noah.nrw/ubbihs/download/pdf/5124767> "Text2Onto - A Framework for Ontology Learning and Data-driven Change Discovery; NLDB").
+- **LogMap** - Matches ontology classes through lexical anchors and hierarchy, repairing mappings that make classes unsatisfiable. In biomedical tests, repair raises precision with little recall change. Approximate reasoning can miss conflicts. [Jiménez-Ruiz and Cuenca Grau 2011](<https://www.cs.ox.ac.uk/isg/projects/LogMap/papers/paper_ISWC2011.pdf> "LogMap: Logic-based and Scalable Ontology Matching; ISWC").
+- **PARIS** - Jointly aligns entities, relations and classes, letting instance matches and schema matches reinforce each other. Weights evidence by how uniquely a relation identifies an entity. YAGO-DBpedia instance alignment reaches 90% precision and 73% recall. [Suchanek et al. 2011](<https://www.vldb.org/pvldb/vol5/p157_fabianmsuchanek_vldb2012.pdf> "PARIS: Probabilistic Alignment of Relations, Instances, and Schema; PVLDB").
+- **Ontop** - Maps relational tables to a supplied ontology and rewrites SPARQL queries into SQL. Uses ontology rules and database constraints during rewriting, answering over existing databases without materializing a separate graph. [Calvanese et al. 2017](<https://titan.dcs.bbk.ac.uk/~roman/papers/SWJ-17.pdf> "Ontop: Answering SPARQL queries over relational databases; Semantic Web").
+- **Entity-alignment comparison** - With matching procedures standardized, PARIS+ beats the tested neural methods except BERT-INT with descriptions on cross-lingual data. Shared attribute values anchor PARIS matches. PARIS+ also accepts seed entity pairs when attributes are absent. [Leone et al. 2022](<https://www.vldb.org/pvldb/vol15/p1712-arora.pdf> "A Critical Re-evaluation of Neural Methods for Entity Alignment; PVLDB").
+- **Text2KGBench** - Tests text extraction against a supplied ontology. On two corpora, Vicuna-13B and Alpaca-LoRA score 83-93% relation-vocabulary conformance but 0.22-0.38 fact F1. Conformance checks relation names, not domain/range constraints. [Mihindukulasooriya et al. 2023](<https://iswc2023.semanticweb.org/wp-content/uploads/2023/11/142660244.pdf> "Text2KGBench: A Benchmark for Ontology-Driven Knowledge Graph Generation from Text; ISWC").
+- **SPIRES** - Fills a supplied schema recursively and resolves names against ontology databases. For 100 Gene Ontology labels, GPT-3.5-turbo gets 98 IDs right versus 3 by prompting alone. With GPT-4-turbo, only 18/100 MONDO disease labels match. [Caufield et al. 2024](<https://pmc.ncbi.nlm.nih.gov/articles/PMC10924283/> "Structured Prompt Interrogation and Recursive Extraction of Semantics (SPIRES): a method for populating knowledge bases using zero-shot learning; Bioinformatics"); [code](<https://github.com/monarch-initiative/ontogpt>).
+- **OLLM** - Fine-tunes a language model to infer taxonomic paths from documents, masking frequent relations in the loss. On Wikipedia, this improves semantic graph matching over ordinary fine-tuning but lowers exact edge matching. [Lo et al. 2024](<https://proceedings.neurips.cc/paper_files/paper/2024/hash/9e89f068a62f6858c661a8abecf5bb0a-Abstract-Conference.html> "End-to-End Ontology Learning with Large Language Models; NeurIPS"); [code](<https://github.com/andylolu2/ollm>).
+- **AutoSchemaKG** - Induces concept types from extracted entities, events and relations without a supplied schema. In a HippoRAG2 ablation, adding concept nodes raises HotpotQA answer F1 from 77.0 to 78.3 but leaves MuSiQue at 47.3. [Bai et al. 2026](<https://aclanthology.org/2026.acl-long.942/> "AutoSchemaKG: Autonomous Knowledge Graph Construction through Dynamic Schema Induction from Web-Scale Corpora; ACL"); [code](<https://github.com/HKUST-KnowComp/AutoSchemaKG>).
 
 ## Probabilistic and answer-set programs
 
@@ -49,6 +62,7 @@
 
 - **DeepProbLog implementation** - Official probabilistic-programming system with neural predicates and example tasks. The probabilistic program, neural architecture and inference configuration jointly define the experiment. [code](<https://github.com/ML-KULeuven/deepproblog>).
 - **LTNtorch** - PyTorch implementation of Logic Tensor Networks with logical operators, quantifiers and satisfaction objectives. Record the fuzzy operators and aggregation choices when comparing models. [code](<https://github.com/logictensornetworks/LTNtorch>).
+- **NVIDIA Auto Ontology** - Uses LLMs to map database columns to business terms, infer relationships and build a semantic catalog. Retrieves catalog entries and schema context to generate SQL for natural-language questions. [code](<https://github.com/NVIDIA/auto-ontology>).
 
 ## Related topics
 
@@ -56,5 +70,6 @@
 - [Interpretability](https://mlpapers.org/interpretability/)
 - [Bayesian networks](https://mlpapers.org/bayesian-nets/)
 - [Graph neural networks](https://mlpapers.org/graph-neural-networks/)
+- [Natural language processing](https://mlpapers.org/nlp/)
 - [Meta-learning](https://mlpapers.org/meta-learning/)
 - [Generalization](https://mlpapers.org/generalization/)
